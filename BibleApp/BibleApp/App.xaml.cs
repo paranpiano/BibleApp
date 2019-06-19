@@ -9,18 +9,15 @@ namespace BibleApp
 {
     public partial class App : Application
     {
-        //TODO: Replace with *.azurewebsites.net url after deploying backend to Azure
-        public static string AzureBackendUrl = "http://localhost:5000";
-        public static bool UseMockDataStore = true;
+
 
         public App()
         {
             InitializeComponent();
 
-            if (UseMockDataStore)
-                DependencyService.Register<TitleDataStore>();
-            else
-                DependencyService.Register<AzureDataStore>();
+
+            DependencyService.Register<TitleDataStore>();
+            DependencyService.Register<RestService>();
 
             MainPage = new MainPage();
         }

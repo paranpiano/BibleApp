@@ -21,7 +21,6 @@ namespace BibleApp.Views
         public ItemsPage()
         {
             InitializeComponent();
-
             BindingContext = viewModel = new ItemsViewModel();
         }
 
@@ -32,7 +31,8 @@ namespace BibleApp.Views
                 return;
 
             //call web servie to get Chatper versers
-            item.Description = "Verses";
+            var verses = await viewModel.RestWebService.RefreshDataAsync(item.Id.ToString());
+            item.Description = verses.ToString();
 
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
