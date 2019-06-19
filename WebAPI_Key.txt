@@ -1,0 +1,82 @@
+PARAMETERS
+There are just two parameters available, both are self-explanatory, passage and version.
+
+Yet you can also use v, ver, lang and translation in place of version and p, text, scrip and scripture in place of passage.
+
+You can call a book, chapter or a single verse, or even a string of verses. When the Version is omitted the KJV is provided by default.
+
+The following are all valid:
+
+http://getbible.net/json?passage=Jn3:16
+http://getbible.net/json?p=James
+http://getbible.net/json?text=ps119
+http://getbible.net/json?scrip=Acts 3:17-4;2:1
+http://getbible.net/json?scripture=Psa 119:4-16;23:1-6&v=amp
+http://getbible.net/json?passage=Acts 15:1-5, 10, 15&version=aov
+
+<option value="korean__1__Ge">Genesis
+<option value="korean__2__Ex">Exodus
+<option value="korean__3__Le">Leviticus
+<option value="korean__4__Nu">Numbers
+<option value="korean__5__De">Deuteronomy
+<option value="korean__6__Jos">Joshua
+<option value="korean__7__Ju">Judges
+<option value="korean__8__Ru">Ruth
+<option value="korean__9__1S">1 Samuel
+<option value="korean__10__2S">2 Samuel
+<option value="korean__11__1K">1 Kings
+<option value="korean__12__2K">2 Kings
+<option value="korean__13__1Chr">1 Chronicles
+<option value="korean__14__2Chr">2 Chronicles
+<option value="korean__15__Ezr">Ezra
+<option value="korean__16__Ne">Nehemiah
+<option value="korean__17__Est">Esther
+<option value="korean__18__Jb">Job
+<option value="korean__19__Ps">Psalms
+<option value="korean__20__Pr">Proverbs
+<option value="korean__21__Ec">Ecclesiastes
+<option value="korean__22__Song">Song of Songs
+<option value="korean__23__Is">Isaiah
+<option value="korean__24__Je">Jeremiah
+<option value="korean__25__La">Lamentations
+<option value="korean__26__Ez">Ezekiel
+<option value="korean__27__Da">Daniel
+<option value="korean__28__Ho">Hosea
+<option value="korean__29__Joel">Joel
+<option value="korean__30__Am">Amos
+<option value="korean__31__Obad">Obadiah
+<option value="korean__32__Jona">Jonah
+<option value="korean__33__Mi">Micah
+<option value="korean__34__Na">Nahum
+<option value="korean__35__Ha">Habakkuk
+<option value="korean__36__Zeph">Zephaniah
+<option value="korean__37__Hagg">Haggai
+<option value="korean__38__Zech">Zechariah
+<option value="korean__39__Ma">Malachi
+<option value="korean__40__Mt">Matthew
+<option value="korean__41__Mak">Mark
+<option value="korean__42__Lk">Luke
+<option value="korean__43__Jn">John 2
+<option value="korean__44__Ac">Acts
+<option value="korean__45__Ro">Romans
+<option value="korean__46__1Co">1 Corinthians
+<option value="korean__47__2Co">2 Corinthians
+<option value="korean__48__Ga">Galatians
+<option value="korean__49__Ep">Ephesians
+<option value="korean__50__Phl">Philippians
+<option value="korean__51__Co">Colossians
+<option value="korean__52__1Th">1 Thessalonians
+<option value="korean__53__2Th">2 Thessalonians
+<option value="korean__54__1Ti">1 Timothy
+<option value="korean__55__2Ti">2 Timothy
+<option value="korean__56__Tit">Titus
+<option value="korean__57__Phm">Philemon
+<option value="korean__58__He">Hebrews
+<option value="korean__59__Ja">James
+<option value="korean__60__1Pe">1 Peter
+<option value="korean__61__2Pe">2 Peter
+<option value="korean__62__1Jhn">1 John
+<option value="korean__63__2Jhn">2 John
+<option value="korean__64__3Jhn">3 John
+<option value="korean__65__Jude">Jude
+<option value="korean__66__Re">Revelation

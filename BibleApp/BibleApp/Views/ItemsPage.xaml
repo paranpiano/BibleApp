@@ -4,7 +4,8 @@
              x:Class="BibleApp.Views.ItemsPage"
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
-    <ContentPage.ToolbarItems>
+    
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -12,7 +13,7 @@
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
 
     <StackLayout>
         <ListView x:Name="ItemsListView"
@@ -31,11 +32,11 @@
                             <Label Text="{Binding Text}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                            <Label Text="{Binding Description}" 
+                                FontSize="20" />
+                            <!--<Label Text="{Binding Description}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                                FontSize="13" />-->
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

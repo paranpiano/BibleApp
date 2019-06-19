@@ -31,6 +31,9 @@ namespace BibleApp.Views
             if (item == null)
                 return;
 
+            //call web servie to get Chatper versers
+            item.Description = "Verses";
+
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
             // Manually deselect item.

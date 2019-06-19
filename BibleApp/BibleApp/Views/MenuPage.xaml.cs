@@ -18,7 +18,7 @@ namespace BibleApp.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                new HomeMenuItem {Id = MenuItemType.Bible, Title="Bible" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 

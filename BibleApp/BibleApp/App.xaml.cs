@@ -18,7 +18,7 @@ namespace BibleApp
             InitializeComponent();
 
             if (UseMockDataStore)
-                DependencyService.Register<MockDataStore>();
+                DependencyService.Register<TitleDataStore>();
             else
                 DependencyService.Register<AzureDataStore>();
 

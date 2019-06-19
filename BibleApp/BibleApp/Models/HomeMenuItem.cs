@@ -6,7 +6,7 @@ namespace BibleApp.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        Bible,
         About
     }
     public class HomeMenuItem

@@ -4,9 +4,9 @@
              x:Class="BibleApp.Views.ItemDetailPage"
              Title="{Binding Title}">
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
+        <!--<Label Text="장:" FontSize="Medium" />-->
+        <!--<Label Text="{Binding Item.Text}" FontSize="Medium"/>-->
+        <!--<Label Text="구절:" FontSize="Medium" />-->
         <Label Text="{Binding Item.Description}" FontSize="Small"/>
     </StackLayout>
 </ContentPage>

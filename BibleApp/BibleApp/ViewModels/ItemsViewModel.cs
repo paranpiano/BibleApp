@@ -17,7 +17,7 @@ namespace BibleApp.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "BIBLE";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

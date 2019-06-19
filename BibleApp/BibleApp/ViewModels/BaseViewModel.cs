@@ -12,7 +12,8 @@ namespace BibleApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IDataStore<Item> DataStore => 
+            DependencyService.Get<IDataStore<Item>>() ?? new TitleDataStore();
 
         bool isBusy = false;
         public bool IsBusy
@@ -54,3 +55,5 @@ namespace BibleApp.ViewModels
         #endregion
     }
 }
+
+
