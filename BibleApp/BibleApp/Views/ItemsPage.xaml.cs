@@ -32,7 +32,12 @@ namespace BibleApp.Views
 
             //call web servie to get Chatper versers
             var verses = await viewModel.RestWebService.RefreshDataAsync(item.Id.ToString());
-            item.Description = verses.ToString();
+
+            foreach (var verse in verses)
+            {
+                item.Description += verse.Number + ":";
+                item.Description += verse.Content;
+            }
 
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 

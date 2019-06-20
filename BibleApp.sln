@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibleApp.Android", "BibleAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibleApp.UWP", "BibleApp\BibleApp.UWP\BibleApp.UWP.csproj", "{56AD9981-1751-4BE1-BD2C-B5501166B88D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibleApp.MobileAppService", "BibleApp\BibleApp.MobileAppService\BibleApp.MobileAppService.csproj", "{A227B364-DC63-4C8C-9AB3-9BE558517913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibleApp.MobileAppService", "BibleApp\BibleApp.MobileAppService\BibleApp.MobileAppService.csproj", "{A227B364-DC63-4C8C-9AB3-9BE558517913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibleApp", "BibleApp\BibleApp\BibleApp.csproj", "{0800F74C-F324-4102-B05A-7CB19F9A39C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibleApp", "BibleApp\BibleApp\BibleApp.csproj", "{0800F74C-F324-4102-B05A-7CB19F9A39C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

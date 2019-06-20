@@ -15,8 +15,8 @@ namespace BibleApp.ViewModels
         public IDataStore<Item> DataStore => 
             DependencyService.Get<IDataStore<Item>>() ?? new TitleDataStore();
 
-        public IRestService<TodoItem> RestWebService =>
-            DependencyService.Get<IRestService<TodoItem>>() ?? new RestService();
+        public IRestService<BibleVerse> RestWebService =>
+            DependencyService.Get<IRestService<BibleVerse>>() ?? new RestService();
 
         bool isBusy = false;
         public bool IsBusy
