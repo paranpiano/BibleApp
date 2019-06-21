@@ -10,11 +10,9 @@ namespace BibleApp
     public partial class App : Application
     {
 
-
         public App()
         {
             InitializeComponent();
-
 
             DependencyService.Register<TitleDataStore>();
             DependencyService.Register<RestService>();

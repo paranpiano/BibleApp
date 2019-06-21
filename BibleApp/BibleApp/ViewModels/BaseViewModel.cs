@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 using BibleApp.Models;
 using BibleApp.Services;
+using BibleApp.DatabaseAccess;
 
 namespace BibleApp.ViewModels
 {
@@ -17,6 +18,8 @@ namespace BibleApp.ViewModels
 
         public IRestService<BibleVerse> RestWebService =>
             DependencyService.Get<IRestService<BibleVerse>>() ?? new RestService();
+
+        public CustomersDataAccess datacontext = new CustomersDataAccess();
 
         bool isBusy = false;
         public bool IsBusy

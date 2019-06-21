@@ -30,14 +30,19 @@ namespace BibleApp.Views
             if (item == null)
                 return;
 
-            //call web servie to get Chatper versers
-            var verses = await viewModel.RestWebService.RefreshDataAsync(item.Id.ToString());
 
-            foreach (var verse in verses)
-            {
-                item.Description += verse.Number + ":";
-                item.Description += verse.Content;
-            }
+            var customer = viewModel.datacontext.GetCustomers(1);
+
+            ////call web servie to get Chatper versers
+            //var verses = await viewModel.RestWebService.RefreshDataAsync(item.Id.ToString());
+
+            //foreach (var verse in verses)
+            //{
+            //    item.Description += verse.Number + ":";
+            //    item.Description += verse.Content;
+            //}
+
+            item.Description = customer.CompanyName + customer.Country;
 
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
