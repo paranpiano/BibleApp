@@ -10,7 +10,7 @@ namespace BibleApp.Droid
     {
         public SQLiteConnection DbConnection()
         {
-            var dbName = "CustomersDb.db3";
+            var dbName = "Db.db3";
             var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), dbName);
             return new SQLiteConnection(path);
         }

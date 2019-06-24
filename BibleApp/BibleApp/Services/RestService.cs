@@ -6,6 +6,7 @@ using System.IO.Compression;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using BibleApp.DatabaseAccess;
 using BibleApp.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -15,47 +16,29 @@ namespace BibleApp.Services
 {
     public class RestService : IRestService<BibleVerse>
     {
+        public DataContext _dc;
         HttpClient _client;
         public static string BaseAddress = Device.RuntimePlatform == Device.Android ? "https://getbible.net" : "https://getbible.net";
         public static string TodoItemsUrl = BaseAddress + "/index.php?option=com_getbible&view=json&p={0}&v={1}";
-        private bool Chapter;
 
-        public List<BibleVerse> Items { get; private set; }
 
         public RestService()
         {
             _client = new HttpClient();
         }
 
-        public async Task<IEnumerable<BibleVerse>> RefreshDataAsynURI(string id)
+        public void SetDataContext(DataContext dc)
         {
-            Items = new List<BibleVerse>();
-
-            _client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "http://developer.github.com/v3/#user-agent-required");
-            var uri = new Uri("https://api.github.com/search/repositories?q=pluralsight");
-            //var uri = new Uri(string.Format(TodoItemsUrl, id.Split('_')[2], id.Split('_')[0]));
-            try
-            {
-                var response = await _client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    Items = JsonConvert.DeserializeObject<List<BibleVerse>>(content);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(@"\tERROR {0}", ex.Message);
-            }
-
-            return Items;
+            _dc = dc;
         }
 
-        public async Task<IEnumerable<BibleVerse>> RefreshDataAsync(string id)
-        {
-            Items = new List<BibleVerse>();
 
-            using (var request = new HttpRequestMessage(HttpMethod.Get, new Uri(string.Format(TodoItemsUrl, id.Split('_')[2], id.Split('_')[0]))))
+        public async Task<IEnumerable<BibleVerse>> CreateBibleVerseData(string id)
+        {
+            string chapterName = id.Split('_')[2];
+            string version = id.Split('_')[0];
+
+            using (var request = new HttpRequestMessage(HttpMethod.Get, new Uri(string.Format(TodoItemsUrl, chapterName, version))))
             {
                 request.Headers.TryAddWithoutValidation("Accept", "text/html,application/xhtml+xml,application/xml");
                 request.Headers.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
@@ -80,41 +63,44 @@ namespace BibleApp.Services
                             var book = rss["book"].ToObject<Dictionary<string, object>>();
                             List<string> chaterKeys = new List<string>(book.Keys);
 
+                            // Chapter # loop
                             for (int i = 0; i < chaterKeys.Count; i++)
                             {
-                                var chapter = (JObject)book[(i + 1).ToString()];
+                                var chapterNr = (JObject)book[(i + 1).ToString()];
                                 var verserKeys =((JObject)book[(i + 1).ToString()])["chapter"].ToObject<Dictionary<string, object>>();
 
+                                // Verse # loop
+                                var verses = "";
                                 for (int j = 0; j < verserKeys.Count; j++)
                                 {
-                                    var verse = ((JObject)verserKeys[(j + 1).ToString()])["verse"];
-                                    Items.Add(new BibleVerse()
-                                    {
-                                        Number = (j+1),
-                                        Content = verse.ToString()
-                                    });
+                                    verses += (j + 1) + ":"; 
+                                    verses += ((JObject)verserKeys[(j + 1).ToString()])["verse"] + "\n";
                                 }
 
-                                break; //get only the first chapter
+                                _dc.AddBibleVerse(new BibleVerse()
+                                {
+                                    Version = version,
+                                    ChapterNr = i+1,
+                                    Chapter = chapterName,
+                                    Verses = verses
+                                });
                             }
-
-                            //Items = JsonConvert.DeserializeObject<List<BibleVerse>>(json.book.ToString());
-
                         }
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    Items.Add(new BibleVerse()
+                    _dc.AddBibleVerse(new BibleVerse()
                     {
-                        Number = 1,
-                        Content = "Failed to Get bible verses, please check network!"
+                        Version = version,
+                        Chapter = chapterName,
+                        Verses = "Failed to add Bible Verse!" + ex.Message
                     });
                 }
             }
 
-            return Items;
+            return null;
         }
     }
 }

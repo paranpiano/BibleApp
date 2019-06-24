@@ -26,23 +26,29 @@ namespace BibleApp.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
+          
             var item = args.SelectedItem as Item;
             if (item == null)
                 return;
 
+            //var DbCount = viewModel.datacontext.GetDataCount();
 
-            var customer = viewModel.datacontext.GetCustomers(1);
-
-            ////call web servie to get Chatper versers
-            //var verses = await viewModel.RestWebService.RefreshDataAsync(item.Id.ToString());
-
-            //foreach (var verse in verses)
+            //if (DbCount == 0
+            //    && viewModel.datacontext.BibleVerses.Count != 0)
             //{
-            //    item.Description += verse.Number + ":";
-            //    item.Description += verse.Content;
+            //    viewModel.datacontext.SaveAllBibleVerses();
             //}
 
-            item.Description = customer.CompanyName + customer.Country;
+            //DbCount = viewModel.datacontext.GetDataCount();
+
+            var verses = viewModel.datacontext.
+                    GetFilteredVerses(item.Id.Split('_')[2], 0 , 0);
+
+
+            foreach (var verse in verses)
+            {
+                item.Description += verse.Verses;
+            }
 
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 

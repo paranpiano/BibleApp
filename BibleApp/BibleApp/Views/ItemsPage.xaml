@@ -16,6 +16,9 @@
     </ContentPage.ToolbarItems>-->
 
     <StackLayout>
+        <Button Text="Create DB Data" Command="{Binding CreateBibleDataCommand }"></Button>
+        <Button Text="Delete DB Data" Command="{Binding DeleteBibleDataCommand }"></Button>
+        
         <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 VerticalOptions="FillAndExpand"
@@ -33,10 +36,6 @@
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="20" />
-                            <!--<Label Text="{Binding Description}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />-->
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

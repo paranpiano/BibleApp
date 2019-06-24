@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BibleApp.Views.ItemDetailPage"
              Title="{Binding Title}">
-    <StackLayout Spacing="20" Padding="15">
-        <!--<Label Text="장:" FontSize="Medium" />-->
-        <!--<Label Text="{Binding Item.Text}" FontSize="Medium"/>-->
-        <!--<Label Text="구절:" FontSize="Medium" />-->
-        <Label Text="{Binding Item.Description}" FontSize="Small"/>
-    </StackLayout>
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="{Binding Item.Description}" FontSize="Small"/>
+        </StackLayout>
+    </ScrollView>
+
 </ContentPage>

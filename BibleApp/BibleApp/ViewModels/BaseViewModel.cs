@@ -19,7 +19,7 @@ namespace BibleApp.ViewModels
         public IRestService<BibleVerse> RestWebService =>
             DependencyService.Get<IRestService<BibleVerse>>() ?? new RestService();
 
-        public CustomersDataAccess datacontext = new CustomersDataAccess();
+        public DataContext datacontext = new DataContext();
 
         bool isBusy = false;
         public bool IsBusy

@@ -1,10 +1,7 @@
 PARAMETERS
 There are just two parameters available, both are self-explanatory, passage and version.
-
 Yet you can also use v, ver, lang and translation in place of version and p, text, scrip and scripture in place of passage.
-
 You can call a book, chapter or a single verse, or even a string of verses. When the Version is omitted the KJV is provided by default.
-
 The following are all valid:
 
 http://getbible.net/json?passage=Jn3:16

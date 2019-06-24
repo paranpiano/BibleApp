@@ -11,7 +11,7 @@ namespace BibleApp.UWP
     {
         public SQLiteConnection DbConnection()
         {
-            var dbName = "CustomersDb.db3";
+            var dbName = "Db.db3";
             var path = Path.Combine(ApplicationData.
                 Current.LocalFolder.Path , dbName);
             return new SQLiteConnection(path);
