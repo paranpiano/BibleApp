@@ -66,8 +66,8 @@ namespace BibleApp.Services
                             // Chapter # loop
                             for (int i = 0; i < chaterKeys.Count; i++)
                             {
-                                var chapterNr = (JObject)book[(i + 1).ToString()];
-                                var verserKeys =((JObject)book[(i + 1).ToString()])["chapter"].ToObject<Dictionary<string, object>>();
+                                var verserKeys =((JObject)book[(i + 1).ToString()])["chapter"].
+                                    ToObject<Dictionary<string, object>>();
 
                                 // Verse # loop
                                 var verses = "";
@@ -91,12 +91,7 @@ namespace BibleApp.Services
                 }
                 catch (Exception ex)
                 {
-                    _dc.AddBibleVerse(new BibleVerse()
-                    {
-                        Version = version,
-                        Chapter = chapterName,
-                        Verses = "Failed to add Bible Verse!" + ex.Message
-                    });
+                    throw ex;
                 }
             }
 

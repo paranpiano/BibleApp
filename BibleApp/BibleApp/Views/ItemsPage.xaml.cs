@@ -31,19 +31,8 @@ namespace BibleApp.Views
             if (item == null)
                 return;
 
-            //var DbCount = viewModel.datacontext.GetDataCount();
-
-            //if (DbCount == 0
-            //    && viewModel.datacontext.BibleVerses.Count != 0)
-            //{
-            //    viewModel.datacontext.SaveAllBibleVerses();
-            //}
-
-            //DbCount = viewModel.datacontext.GetDataCount();
-
             var verses = viewModel.datacontext.
                     GetFilteredVerses(item.Id.Split('_')[2], 0 , 0);
-
 
             foreach (var verse in verses)
             {

@@ -76,7 +76,6 @@ namespace BibleApp.ViewModels
                 IsBusy = false;
             }
         }
-
         async Task ExecuteCreateBibleDataCommand()
         {
             if (IsBusy)
@@ -98,14 +97,13 @@ namespace BibleApp.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                await Application.Current.MainPage.DisplayAlert("ERROR", "FAILED TO DOWNLOAD BIBLE DATA!" + ex.Message, "CLOSE");
             }
             finally
             {
                 IsBusy = false;
             }
         }
-
         async Task ExecuteDeleteBibleDataCommand()
         {
             if (IsBusy)
