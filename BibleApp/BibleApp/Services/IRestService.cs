@@ -7,7 +7,6 @@ namespace BibleApp.Services
 {
     public interface IRestService<T>
     {
-        Task<IEnumerable<T>> CreateBibleVerseData(string id);
-        void SetDataContext(DataContext dc);
+        Task<T> CreateBibleVerseData(string id);
     }
 }

@@ -30,8 +30,6 @@ namespace BibleApp.ViewModels
         /// </summary>
         public ItemsViewModel()
         {
-            RestWebService.SetDataContext(datacontext);
-
             Title = "BIBLE";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -90,10 +88,12 @@ namespace BibleApp.ViewModels
 
                 foreach (var item in Items)
                 {
-                    await RestWebService.CreateBibleVerseData(item.Id);
+                    var verse = await RestWebService.CreateBibleVerseData(item.Id);
+                    datacontext.AddBibleVerse(verse);
                 }
 
                 datacontext.SaveAllBibleVerses();
+                await Application.Current.MainPage.DisplayAlert("INFO", "SUCCESS TO DOWNLOAD BIBLE DATA!", "CLOSE");
             }
             catch (Exception ex)
             {
@@ -114,7 +114,11 @@ namespace BibleApp.ViewModels
             try
             {
                 if (datacontext.GetDataRawCount() != 0)
+                {
                     datacontext.DeleteAllVerses();
+                    await Application.Current.MainPage.DisplayAlert("INFO", "SUCCESS TO DELETE BIBLE DATA!" , "CLOSE");
+                }
+                    
             }
             catch (Exception ex)
             {
